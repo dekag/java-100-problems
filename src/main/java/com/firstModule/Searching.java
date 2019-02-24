@@ -13,7 +13,7 @@ public class Searching {
 	 * program for linear search
 	 * @return true if number is found else false
 	 */
-	static boolean linearSearch() {
+	public static boolean linearSearch() {
 		int[] nums = { 2, 4, 6, 3, 4, 5 };
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter no to search ");
@@ -26,7 +26,11 @@ public class Searching {
 		return false;
 	}
 	
-	static void binarySearch() {
+	/**
+	 * program for binary search
+	 * 
+	 */
+	public static void binarySearch() {
 		int[] nums = {2,4,6,8};
 		
 		int item, location = -1;		
@@ -48,7 +52,7 @@ public class Searching {
 	 * @param item
 	 * @return position of the number
 	 */
-	private static int binarySearchItem(int[] nums, int beg, int end, int item) {
+	public static int binarySearchItem(int[] nums, int beg, int end, int item) {
 		int mid;
 		
 		if(end >= beg) {
