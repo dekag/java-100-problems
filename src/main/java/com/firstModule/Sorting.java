@@ -12,6 +12,7 @@ public class Sorting {
 		int[] nums = { 1, 2, 7, 5, 6, 9 };
 		bubbleSort(nums);
 		insertionSort(nums);
+		selectionSort(nums);
 	}
 
 	/**
@@ -51,10 +52,33 @@ public class Sorting {
 
 			while (j >= 0 && temp <= nums[j]) {
 				nums[j + 1] = nums[j];
-				j=j-1;
+				j = j - 1;
 			}
-			nums[j+1] = temp;
+			nums[j + 1] = temp;
 		}
+		System.out.println();
+		for (int i : nums) {
+			System.out.printf("%d ", i);
+		}
+	}
+
+	/**
+	 * The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order)
+	 * from unsorted part and putting it at the beginning	 * 
+	 * @param nums
+	 */
+	public static void selectionSort(int[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			int minIndex = i;
+			for (int j = i + 1; j < nums.length; j++) {
+				if (nums[j] < nums[minIndex])
+					minIndex = j;
+			}
+			int temp = nums[minIndex];
+			nums[minIndex] = nums[i];
+			nums[i] = temp;
+		}	
+		
 		System.out.println();
 		for (int i : nums) {
 			System.out.printf("%d ", i);
