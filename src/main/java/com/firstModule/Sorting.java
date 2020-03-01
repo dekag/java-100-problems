@@ -10,9 +10,18 @@ public class Sorting {
 
 	public static void main(String[] args) {
 		int[] nums = { 1, 2, 7, 5, 6, 9 };
-		bubbleSort(nums);
-		insertionSort(nums);
-		selectionSort(nums);
+		System.out.println("Before");
+		for (int i : nums) {
+			System.out.printf("%d ", i);
+		}
+		// bubbleSort(nums);
+		// insertionSort(nums);
+		// selectionSort(nums);
+		quickSort(nums, 0, nums.length - 1);
+		System.out.println("\nAfter");
+		for (int i : nums) {
+			System.out.printf("%d ", i);
+		}
 	}
 
 	/**
@@ -64,7 +73,8 @@ public class Sorting {
 
 	/**
 	 * The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order)
-	 * from unsorted part and putting it at the beginning	 * 
+	 * from unsorted part and putting it at the beginning *
+	 * 
 	 * @param nums
 	 */
 	public static void selectionSort(int[] nums) {
@@ -77,12 +87,46 @@ public class Sorting {
 			int temp = nums[minIndex];
 			nums[minIndex] = nums[i];
 			nums[i] = temp;
-		}	
-		
+		}
+
 		System.out.println();
 		for (int i : nums) {
 			System.out.printf("%d ", i);
 		}
+	}
+
+	/**
+	 * QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the
+	 * picked pivot.
+	 * 
+	 * @param nums
+	 * @param low
+	 * @param high
+	 */
+	public static void quickSort(int[] nums, int low, int high) {
+		if (low < high) {
+			int pi = partition(nums, low, high);
+			quickSort(nums, low, pi - 1);
+			quickSort(nums, pi + 1, high);
+		}
+	}
+
+	private static int partition(int[] nums, int low, int high) {
+		int pivot = nums[high];
+		int i = low - 1;
+		for (int j = low; j < high; j++) {
+			if (nums[j] < pivot) {
+				i++;
+				int temp = nums[i];
+				nums[i] = nums[j];
+				nums[j] = temp;
+			}
+		}
+		int temp = nums[i + 1];
+		nums[i + 1] = nums[high];
+		nums[high] = temp;
+
+		return i + 1;
 	}
 
 }

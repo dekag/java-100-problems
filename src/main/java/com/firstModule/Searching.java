@@ -4,9 +4,12 @@ import java.util.Scanner;
 
 public class Searching {
 
+	int x = 10;
+
 	public static void main(String[] args) {
 		// System.out.println(linearSearch());
-		binarySearch();
+		// binarySearch();
+
 	}
 
 	/**
@@ -19,7 +22,7 @@ public class Searching {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter no to search ");
 		int num = sc.nextInt();
-
+		sc.close();
 		for (int n : nums) {
 			if (n == num)
 				return true;
@@ -38,7 +41,7 @@ public class Searching {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Number to search !");
 		item = sc.nextInt();
-
+		sc.close();
 		location = binarySearchItem(nums, 0, nums.length, item);
 		if (location != -1)
 			System.out.println("Found at " + location);
